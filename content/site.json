@@ -1,10 +1,10 @@
 {
-  "title": "AI design patterns",
+  "title": "AI product design reviews",
   "author": "Jing Hu",
   "url": "https://jinghucmu.github.io/ai-design-patterns/",
   "basePath": "/ai-design-patterns/",
-  "description": "A public library of interaction patterns for AI products, drawn from hands-on use of the consumer AI products people pay for.",
+  "description": "Design reviews of the consumer AI products people pay for: what each one does well enough to learn from, and what it still needs to fix.",
   "updates": [
-    { "date": "2026-10-10", "text": "Library opened with the list of 50 products and the method." }
+    { "date": "2026-10-10", "text": "Site opened with the list of 50 products and the method." }
   ]
 }

@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI design patterns, by Jing Hu</title>
-<meta name="description" content="A public library of interaction patterns for AI products, drawn from hands-on use of the consumer AI products people pay for.">
+<title>AI product design reviews, by Jing Hu</title>
+<meta name="description" content="Design reviews of the consumer AI products people pay for: what each one does well enough to learn from, and what it still needs to fix.">
 <meta name="author" content="Jing Hu">
 <link rel="canonical" href="https://jinghucmu.github.io/ai-design-patterns/">
-<meta property="og:title" content="AI design patterns, by Jing Hu">
-<meta property="og:description" content="A public library of interaction patterns for AI products, drawn from hands-on use of the consumer AI products people pay for.">
+<meta property="og:title" content="AI product design reviews, by Jing Hu">
+<meta property="og:description" content="Design reviews of the consumer AI products people pay for: what each one does well enough to learn from, and what it still needs to fix.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jinghucmu.github.io/ai-design-patterns/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -19,53 +19,35 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="brand" href="./"><span class="brand-title">AI design patterns</span><span class="brand-by">by Jing Hu</span></a>
-    <nav aria-label="Main"><a href="patterns/">Patterns</a><a href="products/">Products</a><a href="method/">Method</a><a href="about/">About</a></nav>
+    <a class="brand" href="./"><span class="brand-title">AI product design reviews</span><span class="brand-by">by Jing Hu</span></a>
+    <nav aria-label="Main"><a href="products/">Products</a><a href="method/">Method</a><a href="about/">About</a></nav>
   </div>
 </header>
 <main id="main">
 <section class="hero">
   <div class="wrap">
-    <h1>How the AI products people pay for are designed to be used</h1>
-    <p class="lede">I am using the 50 consumer AI products with the highest observed spending in the United States, one at a time, and writing down the interaction patterns that make them usable by people with no technical training. Each pattern states the problem it solves, where it fails, what it requires for accessibility, and how to test it.</p>
-    <p class="progress">0 of 50 products examined, 0 patterns published</p>
+    <h1>What the AI products people pay for get right, and where they fall short</h1>
+    <p class="lede">I am using the 50 consumer AI products with the highest observed spending in the United States, one at a time. For each one I write down what its design does well enough that other teams should learn from it, and what it still needs to fix.</p>
+    <p class="progress">0 of 50 products reviewed</p>
   </div>
 </section>
 
-<section class="band" aria-labelledby="h-questions">
+<section class="band" aria-labelledby="h-sides">
   <div class="wrap">
-    <h2 id="h-questions">Every product is examined on four questions</h2>
-    <ul class="questions" role="list">
-  <li class="question q-discover">
-    <svg class="shape q-discover" width="28" height="28" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-    <h3>Discover</h3>
-    <p>Can a first-time user find out what the AI can do for them?</p>
-  </li>
-  <li class="question q-direct">
-    <svg class="shape q-direct" width="28" height="28" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-    <h3>Direct</h3>
-    <p>Can they tell it what they want, and adjust when the first result misses?</p>
-  </li>
-  <li class="question q-verify">
-    <svg class="shape q-verify" width="28" height="28" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-    <h3>Verify</h3>
-    <p>Can they check whether the output is right before they rely on it?</p>
-  </li>
-  <li class="question q-recover">
-    <svg class="shape q-recover" width="28" height="28" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-    <h3>Recover</h3>
-    <p>When the AI is wrong, can they correct it or start over without losing their work?</p>
-  </li>
-</ul>
+    <h2 id="h-sides">Every review has two parts</h2>
+    <ul class="sides" role="list">
+      <li class="side side-learn"><svg class="side-mark" width="26" height="26" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M8 3v10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><h3>Worth learning from</h3><p>What the product's design does well enough that other teams should study it.</p></li>
+      <li class="side side-improve"><svg class="side-mark" width="26" height="26" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><h3>Needs improvement</h3><p>Where the design gets in the way, and what I would change.</p></li>
+    </ul>
   </div>
 </section>
 
-<section class="section" aria-labelledby="h-patterns">
+<section class="section" aria-labelledby="h-latest">
   <div class="wrap">
-    <h2 id="h-patterns">Patterns</h2>
+    <h2 id="h-latest">Latest reviews</h2>
     <div class="empty">
-         <p>No patterns are published yet. I am working down the list from the top, and each pattern goes up once I have used the products it comes from.</p>
-         <p><a href="method/">Read how the study works</a></p>
+         <p>No reviews are published yet. I am working down the list from the top, and each review goes up after I have used the product.</p>
+         <p><a href="method/">Read how the reviews are done</a></p>
        </div>
   </div>
 </section>
@@ -73,101 +55,88 @@
 <section class="section" aria-labelledby="h-ledger">
   <div class="wrap">
     <h2 id="h-ledger">The 50 products</h2>
-    <p class="section-intro">A shape fills in when I have used the product and recorded what it does on that question. The order follows spending by U.S. consumers, as reported by Andreessen Horowitz from YipitData panels.</p>
+    <p class="section-intro">The order follows spending by U.S. consumers, as reported by Andreessen Horowitz from YipitData panels.</p>
     <div class="ledger-scroll">
 <table class="ledger">
-<caption class="vh">The first 12 of 50 products, with the questions examined so far</caption>
+<caption class="vh">The first 12 of 50 products and whether each has been reviewed</caption>
 <thead><tr>
   <th scope="col" class="cell-rank">Rank</th>
   <th scope="col" class="cell-name">Product</th>
   <th scope="col" class="cell-cat">Category</th>
-  <th scope="col" class="cell-q"><span class="q-head q-discover"><svg class="shape q-discover" width="11" height="11" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Discover</span></span></th><th scope="col" class="cell-q"><span class="q-head q-direct"><svg class="shape q-direct" width="11" height="11" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Direct</span></span></th><th scope="col" class="cell-q"><span class="q-head q-verify"><svg class="shape q-verify" width="11" height="11" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Verify</span></span></th><th scope="col" class="cell-q"><span class="q-head q-recover"><svg class="shape q-recover" width="11" height="11" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Recover</span></span></th>
-  <th scope="col" class="cell-n">Patterns</th>
+  <th scope="col" class="cell-status">Review</th>
 </tr></thead>
 <tbody>
 <tr data-group="assistants">
   <td class="cell-rank">1</td>
   <th scope="row" class="cell-name">OpenAI<span class="examine">ChatGPT</span></th>
   <td class="cell-cat">General AI assistant</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="assistants">
   <td class="cell-rank">2</td>
   <th scope="row" class="cell-name">Anthropic<span class="examine">Claude</span></th>
   <td class="cell-cat">General AI assistant</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="image">
   <td class="cell-rank">3</td>
   <th scope="row" class="cell-name">Canva</th>
   <td class="cell-cat">Design and creative productivity</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="work">
   <td class="cell-rank">4</td>
   <th scope="row" class="cell-name">Superhuman</th>
   <td class="cell-cat">Productivity and communication</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="video">
   <td class="cell-rank">5</td>
   <th scope="row" class="cell-name">Higgsfield</th>
   <td class="cell-cat">AI video and creative generation</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="building">
   <td class="cell-rank">6</td>
   <th scope="row" class="cell-name">Replit</th>
   <td class="cell-cat">AI coding and app building</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="audio">
   <td class="cell-rank">7</td>
   <th scope="row" class="cell-name">Suno</th>
   <td class="cell-cat">AI music generation</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="building">
   <td class="cell-rank">8</td>
   <th scope="row" class="cell-name">Lovable</th>
   <td class="cell-cat">AI app and website building</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="assistants">
   <td class="cell-rank">9</td>
   <th scope="row" class="cell-name">Perplexity</th>
   <td class="cell-cat">AI search and research</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="audio">
   <td class="cell-rank">10</td>
   <th scope="row" class="cell-name">ElevenLabs</th>
   <td class="cell-cat">AI voice and audio</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="image">
   <td class="cell-rank">11</td>
   <th scope="row" class="cell-name">Midjourney</th>
   <td class="cell-cat">AI image generation</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 <tr data-group="image">
   <td class="cell-rank">12</td>
   <th scope="row" class="cell-name">OpenArt</th>
   <td class="cell-cat">AI image and creative tools</td>
-  <td class="cell-q"><span class="mark q-discover" title="Discover: Not yet examined"><svg class="shape q-discover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Discover: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-direct" title="Direct: Not yet examined"><svg class="shape q-direct" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 2.2 14.2 13.4H1.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Direct: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-verify" title="Verify: Not yet examined"><svg class="shape q-verify" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="11.2" height="11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Verify: Not yet examined</span></span></td><td class="cell-q"><span class="mark q-recover" title="Recover: Not yet examined"><svg class="shape q-recover" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.4 14.6 8 8 14.6 1.4 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="vh">Recover: Not yet examined</span></span></td>
-  <td class="cell-n"></td>
+  <td class="cell-status"><span class="pending">Not yet reviewed</span></td>
 </tr>
 </tbody>
 </table>
@@ -180,7 +149,7 @@
   <div class="wrap">
     <h2 id="h-updates">Updates</h2>
     <ul class="updates" role="list">
-      <li><time datetime="2026-10-10">October 10, 2026</time><span>Library opened with the list of 50 products and the method.</span></li>
+      <li><time datetime="2026-10-10">October 10, 2026</time><span>Site opened with the list of 50 products and the method.</span></li>
     </ul>
   </div>
 </section>
