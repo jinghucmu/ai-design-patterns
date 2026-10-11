@@ -1,0 +1,774 @@
+/* AI design patterns. One typeface (Atkinson Hyperlegible Next), a cool paper ground,
+   and four question colours that always travel with a shape and a word. */
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("fonts/atkinson-hyperlegible-next-latin-wght-italic.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+  --paper: #f1f4f8;
+  --surface: #ffffff;
+  --ink: #131b26;
+  --ink-2: #485467;
+  --line: #d3dae3;
+  --line-strong: #131b26;
+  --link: #1b47b0;
+  --discover: #8f5400;
+  --direct: #1f4fbf;
+  --verify: #0b6e5f;
+  --recover: #a8275f;
+  --discover-wash: #fbf1dc;
+  --direct-wash: #e6edfc;
+  --verify-wash: #def3ee;
+  --recover-wash: #fbe6ef;
+
+  --font: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.5625rem;
+  --step-3: 2.125rem;
+  --step-4: clamp(2.25rem, 1.2rem + 4.6vw, 4.5rem);
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --measure: 66ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f151e;
+    --surface: #171f2b;
+    --ink: #e9edf3;
+    --ink-2: #a6b1c0;
+    --line: #2b3646;
+    --line-strong: #e9edf3;
+    --link: #9bb8ff;
+    --discover: #e8ad52;
+    --direct: #86a8ff;
+    --verify: #52cdb5;
+    --recover: #f389b6;
+    --discover-wash: #2b2212;
+    --direct-wash: #172443;
+    --verify-wash: #10302b;
+    --recover-wash: #361a27;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--direct);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--step-4);
+  font-weight: 760;
+  letter-spacing: -0.032em;
+  line-height: 1;
+}
+h2 {
+  font-size: var(--step-2);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+h3 {
+  font-size: var(--step-1);
+  font-weight: 700;
+}
+p {
+  margin: 0;
+}
+
+.vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+.skip:focus {
+  top: 0.5rem;
+}
+
+.wrap {
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Question colours: set once, used by shapes, tags, and marks. */
+.q-discover { --q: var(--discover); --q-wash: var(--discover-wash); }
+.q-direct { --q: var(--direct); --q-wash: var(--direct-wash); }
+.q-verify { --q: var(--verify); --q-wash: var(--verify-wash); }
+.q-recover { --q: var(--recover); --q-wash: var(--recover-wash); }
+.shape {
+  color: var(--q);
+  flex: none;
+}
+
+/* ---------- header and footer ---------- */
+
+.site-header {
+  border-bottom: 2px solid var(--line-strong);
+  background: var(--paper);
+}
+.header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 2rem;
+  padding-block: 0.9rem;
+}
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.brand-title {
+  font-weight: 760;
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+}
+.brand-by {
+  color: var(--ink-2);
+  font-size: var(--step--1);
+}
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+.site-header nav a {
+  color: var(--ink);
+  text-decoration: none;
+  padding-block: 0.35rem;
+  border-bottom: 2px solid transparent;
+}
+.site-header nav a:hover {
+  border-bottom-color: var(--line);
+}
+.site-header nav a[aria-current="page"] {
+  border-bottom-color: var(--ink);
+  font-weight: 700;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 5rem;
+  color: var(--ink-2);
+  font-size: var(--step--1);
+}
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-block: 1.75rem 2.5rem;
+}
+
+/* ---------- page tops ---------- */
+
+.hero .wrap {
+  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(2.5rem, 5vw, 4rem);
+}
+.hero h1 {
+  max-width: 17ch;
+}
+.page-head .wrap {
+  padding-block: clamp(2.25rem, 5vw, 4rem) 1.5rem;
+}
+.page-head h1 {
+  max-width: 22ch;
+}
+.lede {
+  max-width: 58ch;
+  font-size: var(--step-1);
+  line-height: 1.45;
+  margin-top: 1.5rem;
+  color: var(--ink);
+}
+.progress {
+  margin-top: 1.5rem;
+  color: var(--ink-2);
+}
+.crumb {
+  margin-bottom: 1rem;
+  font-size: var(--step--1);
+}
+
+.section .wrap {
+  padding-block: 2.5rem 0.5rem;
+}
+.section h2 {
+  margin-bottom: 1.25rem;
+}
+.section-intro {
+  max-width: var(--measure);
+  color: var(--ink-2);
+  margin-bottom: 1.5rem;
+}
+.more {
+  margin-top: 1.25rem;
+}
+.narrow-left > * {
+  max-width: var(--measure);
+}
+
+/* ---------- the four questions ---------- */
+
+.band {
+  background: var(--surface);
+  border-block: 1px solid var(--line);
+}
+.band .wrap {
+  padding-block: 2.5rem 2.75rem;
+}
+.band h2 {
+  margin-bottom: 1.75rem;
+}
+.questions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+}
+.question {
+  padding: 1.25rem 1.5rem 1.5rem 0;
+  border-top: 4px solid var(--q);
+  margin-right: 1.5rem;
+}
+.question:last-child {
+  margin-right: 0;
+}
+.question h3 {
+  margin-top: 0.85rem;
+  font-size: var(--step-2);
+  letter-spacing: -0.015em;
+  color: var(--q);
+}
+.question p {
+  margin-top: 0.5rem;
+  max-width: 30ch;
+}
+.prose .questions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 1.5rem;
+  max-width: none;
+  margin-block: 1.75rem;
+  padding: 0;
+}
+.prose .question:nth-child(2n) {
+  margin-right: 0;
+}
+.prose .questions li + li {
+  margin-top: 0;
+}
+
+/* ---------- ledger ---------- */
+
+.ledger-scroll {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--line-strong);
+}
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  line-height: 1.3;
+}
+.ledger th,
+.ledger td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--line);
+}
+.ledger tbody tr:last-child > * {
+  border-bottom: 0;
+}
+.ledger thead th {
+  font-weight: 700;
+  color: var(--ink-2);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line-strong);
+  vertical-align: bottom;
+}
+.ledger .cell-rank {
+  width: 3.5rem;
+  text-align: right;
+  color: var(--ink-2);
+}
+.ledger .cell-name {
+  font-size: var(--step-0);
+  font-weight: 700;
+}
+.ledger .cell-name a {
+  color: var(--ink);
+}
+.examine {
+  display: block;
+  font-size: var(--step--1);
+  font-weight: 400;
+  color: var(--ink-2);
+}
+.ledger .cell-cat {
+  color: var(--ink-2);
+}
+.ledger .cell-q {
+  width: 5.5rem;
+  text-align: center;
+}
+.ledger .cell-n {
+  width: 5rem;
+  text-align: right;
+}
+.q-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--q);
+}
+.mark {
+  display: inline-flex;
+  color: var(--line);
+}
+.mark .shape {
+  color: var(--ink-2);
+  opacity: 0.45;
+}
+.mark.is-on .shape {
+  color: var(--q);
+  opacity: 1;
+}
+.ledger tr[hidden] {
+  display: none;
+}
+
+/* ---------- filters ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.filters button {
+  font: inherit;
+  font-size: var(--step--1);
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink-2);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+}
+.filters button:hover {
+  border-color: var(--ink);
+}
+.filters button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- pattern list ---------- */
+
+.pattern-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--line-strong);
+}
+.pattern-item[hidden] {
+  display: none;
+}
+.pattern-link {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr) minmax(0, 16rem);
+  gap: 0.5rem 1.5rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+.pattern-link:hover .pattern-title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+.pattern-q {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--q);
+  font-weight: 700;
+}
+.pattern-title {
+  display: block;
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.pattern-summary {
+  display: block;
+  color: var(--ink-2);
+  margin-top: 0.25rem;
+  max-width: 60ch;
+}
+.pattern-seen {
+  color: var(--ink-2);
+  font-size: var(--step--1);
+}
+
+.empty {
+  border: 1px dashed var(--ink-2);
+  padding: 1.5rem;
+  max-width: var(--measure);
+}
+.empty p + p {
+  margin-top: 0.75rem;
+}
+
+.updates {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--line-strong);
+  max-width: 52rem;
+}
+.updates li {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.updates time {
+  color: var(--ink-2);
+}
+
+/* ---------- tags, facts, definitions ---------- */
+
+.meta {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.6rem;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--step--1);
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--ink-2);
+  border-radius: 999px;
+  background: var(--surface);
+}
+.tag[class*="q-"] {
+  color: var(--q);
+  border-color: var(--q);
+  background: var(--q-wash);
+}
+.meta-date {
+  color: var(--ink-2);
+  font-size: var(--step--1);
+  margin-left: 0.4rem;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  margin: 1.75rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.facts dt {
+  color: var(--ink-2);
+  font-size: var(--step--1);
+}
+.facts dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.defs {
+  margin: 0;
+  border-top: 2px solid var(--line-strong);
+}
+.defs > div {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.defs dt {
+  font-weight: 700;
+}
+.defs dd {
+  margin: 0;
+}
+
+/* ---------- long-form text ---------- */
+
+.prose > * + * {
+  margin-top: 1rem;
+}
+.prose h2 {
+  margin-top: 2.75rem;
+  margin-bottom: 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.prose > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.prose h3 {
+  margin-top: 2rem;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.25rem;
+  margin-bottom: 0;
+}
+.prose li + li {
+  margin-top: 0.5rem;
+}
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
+  gap: 2.5rem clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+.two-col .prose {
+  max-width: var(--measure);
+}
+.seen h2 {
+  font-size: var(--step-1);
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--line-strong);
+}
+.seen-text {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- screenshots ---------- */
+
+.shot {
+  margin: 0;
+}
+.shot > a {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.shot figcaption {
+  margin-top: 0.6rem;
+  font-size: var(--step--1);
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 60ch;
+}
+.shot.is-portrait {
+  max-width: 19rem;
+}
+.shots .shot figcaption {
+  font-size: 1rem;
+}
+.seen .shot + .shot,
+.seen .shot + .seen-text,
+.seen .seen-text + .shot {
+  margin-top: 1.75rem;
+}
+
+.q-section + .q-section {
+  margin-top: 3.5rem;
+}
+.q-section-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding-top: 1rem;
+  border-top: 4px solid var(--q);
+  margin-bottom: 1.5rem;
+}
+.q-section-head .shape {
+  margin-top: 0.2rem;
+}
+.q-section-head h2 {
+  margin: 0;
+  color: var(--q);
+}
+.q-section-head p {
+  color: var(--ink-2);
+  margin-top: 0.2rem;
+}
+.shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr));
+  gap: 2rem 1.75rem;
+  align-items: start;
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 60rem) {
+  .questions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.5rem;
+  }
+  .question:nth-child(2n) {
+    margin-right: 0;
+  }
+  .two-col {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pattern-link {
+    grid-template-columns: 7rem minmax(0, 1fr);
+  }
+  .pattern-seen {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 40rem) {
+  .questions,
+  .prose .questions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .question {
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .ledger .cell-cat,
+  .ledger .cell-n,
+  .q-head span {
+    display: none;
+  }
+  .ledger th,
+  .ledger td {
+    padding: 0.55rem 0.4rem;
+  }
+  .ledger .cell-rank {
+    width: 2.25rem;
+  }
+  .ledger .cell-q {
+    width: 2.25rem;
+  }
+  .pattern-link {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.35rem;
+  }
+  .pattern-seen {
+    grid-column: 1;
+  }
+  .updates li,
+  .defs > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skip {
+    transition: top 0.15s ease-out;
+  }
+}
+
+@media print {
+  .site-header nav,
+  .filters,
+  .skip {
+    display: none;
+  }
+  body {
+    background: #fff;
+  }
+}
